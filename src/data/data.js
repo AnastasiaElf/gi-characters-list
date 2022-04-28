@@ -57,7 +57,7 @@ const data = {
     amber: { img: "amber", ...amber },
     aratakiitto: { img: "aratakiitto", ...aratakiitto },
     barbara: { img: "barbara", ...barbara },
-    beidou: { img: "beimgou", ...beidou },
+    beidou: { img: "beidou", ...beidou },
     bennett: { img: "bennett", ...bennett },
     chongyun: { img: "chongyun", ...chongyun },
     diluc: { img: "diluc", ...diluc },

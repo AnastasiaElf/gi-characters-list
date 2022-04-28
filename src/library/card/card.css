@@ -2,4 +2,20 @@
     cursor: default;
     margin: 20px;
     padding: 20px;
+    width: 100px;
+    height: 100px;
+    background-size: contain, contain;
+    background-repeat: no-repeat, no-repeat;
+    position: relative;
+    border-radius: 10px;
+}
+
+.element {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
