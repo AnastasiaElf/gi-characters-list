@@ -48,7 +48,7 @@ import yoimiya from "./characters/yoimiya.json";
 import yunjin from "./characters/yunjin.json";
 import zhongli from "./characters/zhongli.json";
 
-let data = {
+const data = {
     aether_anemo: { img: "aether", ...aether, element: "Anemo" },
     aether_electro: { img: "aether", ...aether, element: "Electro" },
     aether_geo: { img: "aether", ...aether, element: "Geo" },
@@ -103,3 +103,5 @@ let data = {
     yunjin: { img: "yunjin", ...yunjin },
     zhongli: { img: "zhongli", ...zhongli },
 };
+
+export default data;
