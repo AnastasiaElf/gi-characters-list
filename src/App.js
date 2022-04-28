@@ -1,12 +1,8 @@
-import './App.css';
+import "./App.css";
+import "./data/data";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
-  );
+    return <div className="main"></div>;
 }
 
 export default App;
