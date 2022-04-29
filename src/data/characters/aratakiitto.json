@@ -14,7 +14,9 @@
 	"affiliation": "Arataki Gang",
 	"birthdaymmdd": "6/1",
 	"birthday": "June 1",
-	"constellation": "Taurus Iracundus",
+	"constellation": "Taurus Iracundus",                                       
+	"releasedate": "2021-12-14",
+	"releaseversion": "2.3",
 	"cv": {
 		"english": "Max Mittelman",
 		"chinese": "刘照坤",

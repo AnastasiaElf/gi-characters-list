@@ -14,7 +14,9 @@
 	"affiliation": "Yuehai Pavilion",
 	"birthdaymmdd": "12/2",
 	"birthday": "December 2",
-	"constellation": "Sinae Unicornis",
+	"constellation": "Sinae Unicornis",        
+	"releasedate": "2021-01-12",
+	"releaseversion": "1.2",
 	"cv": {
 		"english": "Jennifer Losi",
 		"chinese": "林簌",

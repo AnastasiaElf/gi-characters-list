@@ -14,7 +14,9 @@
 	"affiliation": "Shuumatsuban",
 	"birthdaymmdd": "10/19",
 	"birthday": "October 19",
-	"constellation": "Nyctereutes Minor",
+	"constellation": "Nyctereutes Minor",                            
+	"releasedate": "2021-08-10",
+	"releaseversion": "2.0",
 	"cv": {
 		"english": "Lilypichu (Lily Ki)",
 		"chinese": "Sakula小舞",

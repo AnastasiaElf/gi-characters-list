@@ -14,7 +14,9 @@
 	"affiliation": "Liyue Harbor",
 	"birthdaymmdd": "12/31",
 	"birthday": "December 31",
-	"constellation": "Lapis Dei",
+	"constellation": "Lapis Dei",    
+	"releasedate": "2020-12-01",
+	"releaseversion": "1.1",
 	"cv": {
 		"english": "Keith Silverstein",
 		"chinese": "彭博",

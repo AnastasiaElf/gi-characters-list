@@ -14,7 +14,9 @@
 	"affiliation": "Grand Narukami Shrine",
 	"birthdaymmdd": "6/27",
 	"birthday": "June 27",
-	"constellation": "Divina Vulpes",
+	"constellation": "Divina Vulpes",                                               
+	"releasedate": "2022-02-16",
+	"releaseversion": "2.5",
 	"cv": {
 		"english": "Ratana",
 		"chinese": "杜冥鸦",

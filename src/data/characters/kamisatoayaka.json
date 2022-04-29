@@ -14,7 +14,9 @@
 	"affiliation": "Yashiro Commission",
 	"birthdaymmdd": "9/28",
 	"birthday": "September 28",
-	"constellation": "Grus Nivis",
+	"constellation": "Grus Nivis",                            
+	"releasedate": "2021-07-21",
+	"releaseversion": "2.0",
 	"cv": {
 		"english": "Erica Mendez",
 		"chinese": "小N",

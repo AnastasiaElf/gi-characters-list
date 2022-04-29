@@ -14,7 +14,9 @@
 	"affiliation": "Church of Favonius",
 	"birthdaymmdd": "1/24",
 	"birthday": "January 24",
-	"constellation": "Spinea Corona",
+	"constellation": "Spinea Corona",                
+	"releasedate": "2021-04-07",
+	"releaseversion": "1.4",
 	"cv": {
 		"english": "Elizabeth Maxwell",
 		"chinese": "张安琪",

@@ -14,7 +14,9 @@
 	"affiliation": "The Crux",
 	"birthdaymmdd": "10/29",
 	"birthday": "October 29",
-	"constellation": "Acer Palmatum",
+	"constellation": "Acer Palmatum",                        
+	"releasedate": "2021-06-29",
+	"releaseversion": "1.6",
 	"cv": {
 		"english": "Mark Whitten",
 		"chinese": "斑马",

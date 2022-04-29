@@ -14,7 +14,9 @@
 	"affiliation": "Cloud Retainer's Abode",
 	"birthdaymmdd": "3/10",
 	"birthday": "March 10",
-	"constellation": "Crista Doloris",
+	"constellation": "Crista Doloris",                                           
+	"releasedate": "2022-01-05",
+	"releaseversion": "2.4",
 	"cv": {
 		"english": "Chelsea Kwoka",
 		"chinese": "秦紫翼",

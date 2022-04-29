@@ -14,7 +14,9 @@
 	"affiliation": "\"The Red Strings\"",
 	"birthdaymmdd": "10/16",
 	"birthday": "October 16",
-	"constellation": "Fila Ignium",
+	"constellation": "Fila Ignium",    
+	"releasedate": "2020-12-01",
+	"releaseversion": "1.1",
 	"cv": {
 		"english": "Laura Stahl",
 		"chinese": "王雅欣",

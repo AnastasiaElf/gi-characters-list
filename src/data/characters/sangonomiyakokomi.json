@@ -14,7 +14,9 @@
 	"affiliation": "Watatsumi Island",
 	"birthdaymmdd": "2/22",
 	"birthday": "February 22",
-	"constellation": "Dracaena Somnolenta",
+	"constellation": "Dracaena Somnolenta",                               
+	"releasedate": "2021-09-21",
+	"releaseversion": "2.1",
 	"cv": {
 		"english": "Risa Mei",
 		"chinese": "龟娘",

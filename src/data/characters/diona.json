@@ -14,7 +14,9 @@
 	"affiliation": "The Cat's Tail",
 	"birthdaymmdd": "1/18",
 	"birthday": "January 18",
-	"constellation": "Feles",
+	"constellation": "Feles",    
+	"releasedate": "2020-11-11",
+	"releaseversion": "1.1",
 	"cv": {
 		"english": "Dina Sherman",
 		"chinese": "诺亚",
