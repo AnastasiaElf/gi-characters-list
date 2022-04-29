@@ -50,8 +50,8 @@ import zhongli from "./characters/zhongli.json";
 
 const data = {
     aether_anemo: { img: "aether", ...aether, element: "Anemo" },
-    aether_electro: { img: "aether", ...aether, element: "Electro" },
     aether_geo: { img: "aether", ...aether, element: "Geo" },
+    aether_electro: { img: "aether", ...aether, element: "Electro", releasedate: "2021-07-21", releaseversion: "2.0" },
     albedo: { img: "albedo", ...albedo },
     aloy: { img: "aloy", ...aloy },
     amber: { img: "amber", ...amber },
@@ -77,8 +77,8 @@ const data = {
     sangonomiyakokomi: { img: "sangonomiyakokomi", ...sangonomiyakokomi },
     lisa: { img: "lisa", ...lisa },
     lumine_anemo: { img: "lumine", ...lumine, element: "Anemo" },
-    lumine_electro: { img: "lumine", ...lumine, element: "Electro" },
     lumine_geo: { img: "lumine", ...lumine, element: "Geo" },
+    lumine_electro: { img: "lumine", ...lumine, element: "Electro", releasedate: "2021-07-21", releaseversion: "2.0" },
     mona: { img: "mona", ...mona },
     ningguang: { img: "ningguang", ...ningguang },
     noelle: { img: "noelle", ...noelle },
