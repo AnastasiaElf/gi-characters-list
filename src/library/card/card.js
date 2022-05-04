@@ -22,6 +22,7 @@ const ELEMENT_BG_COLORS = {
 
 function Card({ data }) {
     const element = data.element.toLowerCase();
+    const weapon = data.weapontype.toLowerCase();
 
     return (
         <div
@@ -36,7 +37,13 @@ function Card({ data }) {
                 style={{
                     backgroundImage: `url("assets/elements/${element}.png"), radial-gradient(circle, ${ELEMENT_BG_COLORS[element]} 0%, rgba(255,255,255,0) 80%)`,
                 }}
-            ></div>
+            />
+            <div
+                className="weapon"
+                style={{
+                    backgroundImage: `url("assets/weapons/${weapon}.png")`,
+                }}
+            />
         </div>
     );
 }

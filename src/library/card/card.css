@@ -17,3 +17,14 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.weapon {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: brightness(2) drop-shadow(0px 0px 4px black);
+}
