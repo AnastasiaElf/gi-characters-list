@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./App.css";
 import data from "./data/data";
 import Card from "./library/card/card";
@@ -15,9 +15,20 @@ const sortOptions = [
     { value: "body", label: "Body type" },
 ];
 
+const groupOptions = [
+    { value: null, label: "None" },
+    { value: "element", label: "Element" },
+    { value: "weapontype", label: "Weapon" },
+    { value: "rarity", label: "Rarity" },
+    { value: "region", label: "Region" },
+    { value: "releaseversion", label: "Release version" },
+    { value: "gender", label: "Gender" },
+    { value: "body", label: "Body type" },
+];
+
 const rarityOptions = [
-    { value: "5", label: "5*", dataGroup: "rarity" },
-    { value: "4", label: "4*", dataGroup: "rarity" },
+    { value: "5", label: "5 star", dataGroup: "rarity" },
+    { value: "4", label: "4 star", dataGroup: "rarity" },
 ];
 
 const elementOptions = [
@@ -86,6 +97,16 @@ const sortOptionsOrder = {
     region: regionOptions.map((elem) => elem.value),
 };
 
+const groupOptionsValues = {
+    element: elementOptions,
+    weapontype: weaponOptions,
+    rarity: rarityOptions,
+    region: regionOptions,
+    releaseversion: versionOptions,
+    body: bodyOptions,
+    gender: genderOptions,
+};
+
 const filterOptions = [
     {
         label: "Rarity",
@@ -140,12 +161,13 @@ function App() {
     }, []);
 
     const [selectedSortOptions, setSelectedSortOptions] = useState(sortOptions[0]);
+    const [selectedGroupOptions, setSelectedGroupOptions] = useState(groupOptions[0]);
     const [selectedFilterOptions, setSelectedFilterOptions] = useState([]);
 
     const characters = useMemo(() => {
         let data = [...charactersData];
-        let option = selectedSortOptions.value;
-        let optionOrder = sortOptionsOrder[option];
+        let sortOption = selectedSortOptions.value;
+        let groupOption = selectedGroupOptions.value;
 
         let filterData = selectedFilterOptions.reduce((result, item) => {
             let key = item.dataGroup;
@@ -158,14 +180,43 @@ function App() {
             return result;
         }, {});
 
+        data = filterItems(data, filterData);
+
+        if (groupOption) {
+            // TODO: refactor
+            let groupData = groupOptionsValues[groupOption];
+            let groupedData = groupData.reduce((result, group) => {
+                result.push({
+                    groupInfo: group,
+                    data: sortItems(
+                        data.filter((elem) => elem[groupOption].toLowerCase() === group.value),
+                        sortOption
+                    ),
+                });
+                return result;
+            }, []);
+            data = groupedData;
+        } else {
+            data = sortItems(data, sortOption);
+        }
+
+        return data;
+    }, [charactersData, selectedSortOptions, selectedFilterOptions, selectedGroupOptions]);
+
+    function filterItems(items, filterData) {
         // TODO: refactor
-        data = data.filter((elem) => {
+        return items.filter((elem) => {
             return Object.entries(filterData).every(([filterKey, filterOptions]) => {
                 return filterOptions.some((filterOption) => {
                     return elem[filterKey].toLowerCase() === filterOption.value;
                 });
             });
         });
+    }
+
+    function sortItems(items, option) {
+        let data = [...items];
+        let optionOrder = sortOptionsOrder[option];
 
         if (optionOrder) {
             data.sort(
@@ -188,8 +239,9 @@ function App() {
                     break;
             }
         }
+
         return data;
-    }, [charactersData, selectedSortOptions, selectedFilterOptions]);
+    }
 
     const CustomMultiValue = (props) => <components.MultiValue {...props}>{props.data.label}</components.MultiValue>;
 
@@ -210,6 +262,15 @@ function App() {
                     />
                 </div>
                 <div className="setting-item">
+                    <div className="setting-label">Group by:</div>
+                    <Select
+                        className="setting-input"
+                        options={groupOptions}
+                        defaultValue={selectedGroupOptions}
+                        onChange={setSelectedGroupOptions}
+                    />
+                </div>
+                <div className="setting-item">
                     <div className="setting-label">Show only:</div>
                     <Select
                         className="setting-input"
@@ -223,11 +284,28 @@ function App() {
                     />
                 </div>
             </div>
-            <div className="cards">
-                {characters.map((elem) => (
-                    <Card data={elem} key={elem.id} />
-                ))}
-            </div>
+            {selectedGroupOptions.value ? (
+                characters.map((groupItems, id) => {
+                    return (
+                        <React.Fragment key={id}>
+                            <div className="cards-divider" key={groupItems.groupInfo.value}>
+                                {groupItems.groupInfo.label}
+                            </div>
+                            <div className="cards" key={groupItems.groupInfo.value + "-cards"}>
+                                {groupItems.data.map((elem) => (
+                                    <Card data={elem} key={elem.id} />
+                                ))}
+                            </div>
+                        </React.Fragment>
+                    );
+                })
+            ) : (
+                <div className="cards">
+                    {characters.map((elem) => (
+                        <Card data={elem} key={elem.id} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
