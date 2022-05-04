@@ -28,3 +28,13 @@
     background-repeat: no-repeat;
     filter: brightness(2) drop-shadow(0px 0px 4px black);
 }
+
+.region {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
