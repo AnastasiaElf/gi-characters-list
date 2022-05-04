@@ -31,11 +31,11 @@ const elementOptions = [
 ];
 
 const weaponOptions = [
-    { value: "sword", label: "Sword", dataGroup: "weapon" },
-    { value: "claymore", label: "Claymore", dataGroup: "weapon" },
-    { value: "polearm", label: "Polearm", dataGroup: "weapon" },
-    { value: "catalyst", label: "Catalyst", dataGroup: "weapon" },
-    { value: "bow", label: "Bow", dataGroup: "weapon" },
+    { value: "sword", label: "Sword", dataGroup: "weapontype" },
+    { value: "claymore", label: "Claymore", dataGroup: "weapontype" },
+    { value: "polearm", label: "Polearm", dataGroup: "weapontype" },
+    { value: "catalyst", label: "Catalyst", dataGroup: "weapontype" },
+    { value: "bow", label: "Bow", dataGroup: "weapontype" },
 ];
 
 const genderOptions = [
@@ -147,6 +147,26 @@ function App() {
         let option = selectedSortOptions.value;
         let optionOrder = sortOptionsOrder[option];
 
+        let filterData = selectedFilterOptions.reduce((result, item) => {
+            let key = item.dataGroup;
+
+            if (!result[key]) {
+                result[key] = [];
+            }
+            result[key].push(item);
+
+            return result;
+        }, {});
+
+        // TODO: refactor
+        data = data.filter((elem) => {
+            return Object.entries(filterData).every(([filterKey, filterOptions]) => {
+                return filterOptions.some((filterOption) => {
+                    return elem[filterKey].toLowerCase() === filterOption.value;
+                });
+            });
+        });
+
         if (optionOrder) {
             data.sort(
                 (a, b) =>
@@ -169,7 +189,7 @@ function App() {
             }
         }
         return data;
-    }, [charactersData, selectedSortOptions]);
+    }, [charactersData, selectedSortOptions, selectedFilterOptions]);
 
     const CustomMultiValue = (props) => <components.MultiValue {...props}>{props.data.label}</components.MultiValue>;
 
