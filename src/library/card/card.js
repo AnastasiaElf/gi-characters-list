@@ -45,7 +45,7 @@ function Card({ data }) {
                     backgroundImage: `url("assets/weapons/${weapon}.png")`,
                 }}
             />
-            {region ? (
+            {region && region !== "noregion" ? (
                 <div
                     className="region"
                     style={{
