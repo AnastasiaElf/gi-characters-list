@@ -163,9 +163,13 @@ function App() {
     const [selectedSortOptions, setSelectedSortOptions] = useState(sortOptions[0]);
     const [selectedGroupOptions, setSelectedGroupOptions] = useState(groupOptions[0]);
     const [selectedFilterOptions, setSelectedFilterOptions] = useState([]);
+    const [isCombineTravelers, setIsCombineTravelers] = useState(true);
 
     const characters = useMemo(() => {
         let data = [...charactersData];
+        if (isCombineTravelers) {
+            data = data.filter((elem) => (elem.name === "Aether" ? elem.element === "Anemo" : elem.name !== "Lumine"));
+        }
         let sortOption = selectedSortOptions.value;
         let groupOption = selectedGroupOptions.value;
 
@@ -201,7 +205,7 @@ function App() {
         }
 
         return data;
-    }, [charactersData, selectedSortOptions, selectedFilterOptions, selectedGroupOptions]);
+    }, [charactersData, selectedSortOptions, selectedFilterOptions, selectedGroupOptions, isCombineTravelers]);
 
     function filterItems(items, filterData) {
         // TODO: refactor
@@ -282,6 +286,20 @@ function App() {
                         closeMenuOnSelect={false}
                         components={{ Option: CustomOption, MultiValue: CustomMultiValue }}
                     />
+                </div>
+                <div className="setting-item">
+                    <div>
+                        <label htmlFor="traveler">
+                            <input
+                                type="checkbox"
+                                id="traveler"
+                                name="traveler"
+                                checked={isCombineTravelers}
+                                onChange={() => setIsCombineTravelers(!isCombineTravelers)}
+                            />
+                            Hide all traveler variants
+                        </label>
+                    </div>
                 </div>
             </div>
             {selectedGroupOptions.value ? (
