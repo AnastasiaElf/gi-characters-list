@@ -1,14 +1,14 @@
 import "./card.css";
 
-const ELEMENT_COLORS = {
-    anemo: "#bbffde",
-    cryo: "#e8ffff",
-    dendro: "#ffa870",
-    electro: "#eadaff",
-    geo: "#f7e272",
-    hydro: "#09ebff",
-    pyro: "#ffa870",
-};
+// const ELEMENT_COLORS = {
+//     anemo: "#bbffde",
+//     cryo: "#e8ffff",
+//     dendro: "#ffa870",
+//     electro: "#eadaff",
+//     geo: "#f7e272",
+//     hydro: "#09ebff",
+//     pyro: "#ffa870",
+// };
 
 const ELEMENT_BG_COLORS = {
     anemo: "#1bc88e",

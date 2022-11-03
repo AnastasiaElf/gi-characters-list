@@ -86,6 +86,11 @@ const versionOptions = [
     { value: "2.4", label: "Version 2.4", dataGroup: "releaseversion" },
     { value: "2.5", label: "Version 2.5", dataGroup: "releaseversion" },
     { value: "2.6", label: "Version 2.6", dataGroup: "releaseversion" },
+    { value: "2.7", label: "Version 2.7", dataGroup: "releaseversion" },
+    { value: "2.8", label: "Version 2.8", dataGroup: "releaseversion" },
+    { value: "3.0", label: "Version 3.0", dataGroup: "releaseversion" },
+    { value: "3.1", label: "Version 3.1", dataGroup: "releaseversion" },
+    { value: "3.2", label: "Version 3.2", dataGroup: "releaseversion" },
 ];
 
 const sortOptionsOrder = {
