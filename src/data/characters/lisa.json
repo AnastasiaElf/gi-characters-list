@@ -2,7 +2,7 @@
 	"name": "Lisa",
 	"fullname": "Lisa",
 	"title": "Witch of Purple Rose",
-	"description": "The languid but knowledgeable Librarian of the Knights of Favonius, deemed by Sumeru Academia to be their most distinguished graduate in the past two centuries.",
+	"description": "The languid but knowledgeable Librarian of the Knights of Favonius, deemed by Sumeru Akademiya to be their most distinguished graduate in the past two centuries.",
 	"rarity": "4",
 	"element": "Electro",
 	"weapontype": "Catalyst",
@@ -15,8 +15,6 @@
 	"birthdaymmdd": "6/9",
 	"birthday": "June 9",
 	"constellation": "Tempus Fugit",
-	"releasedate": "2020-09-28",
-	"releaseversion": "1.0",
 	"cv": {
 		"english": "Mara Junot",
 		"chinese": "钟可",

@@ -1,7 +1,7 @@
 {
 	"name": "Diluc",
 	"fullname": "Diluc",
-	"title": "The Dark Side of Dawn",
+	"title": "Dark Side of Dawn",
 	"description": "The tycoon of a winery empire in Mondstadt, unmatched in every possible way.",
 	"rarity": "5",
 	"element": "Pyro",
@@ -15,8 +15,6 @@
 	"birthdaymmdd": "4/30",
 	"birthday": "April 30",
 	"constellation": "Noctua",
-	"releasedate": "2020-09-28",
-	"releaseversion": "1.0",
 	"cv": {
 		"english": "Sean Chiplock",
 		"chinese": "马洋",
