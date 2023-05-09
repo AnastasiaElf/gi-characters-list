@@ -2,6 +2,8 @@ import { createContext, useContext, useReducer } from "react";
 import "./mainPage.css";
 import List from "./parts/list";
 import Settings from "./parts/settings";
+import { orderOptions } from "./parts/orderSelect";
+import { groupOptions } from "./parts/groupSelect";
 
 export const PageContext = createContext({});
 
@@ -10,33 +12,33 @@ export function usePageContext() {
 }
 
 const actions = {
-    updateSorting: "UPDATE_SORTING",
+    updateOrdering: "UPDATE_ORDERING",
     updateGrouping: "UPDATE_GROUPING",
-    updateFiltering: "UPDATE_FILTERING",
+    updateFilters: "UPDATE_FILTERS",
     updateTravelersCombine: "UPDATE_TRAVELER_COMBINE",
 };
 
 function reducer(state, action) {
     switch (action.type) {
-        case actions.updateSorting:
+        case actions.updateOrdering:
             // TODO: add data update
             return {
                 ...state,
-                selectedSortOptions: action.payload,
+                orderBy: action.payload,
                 data: [...state.data],
             };
 
         case actions.updateGrouping:
             return {
                 ...state,
-                selectedGroupOptions: action.payload,
+                groupBy: action.payload,
                 data: [...state.data],
             };
 
-        case actions.updateFiltering:
+        case actions.updateFilters:
             return {
                 ...state,
-                selectedFilterOptions: action.payload,
+                filters: action.payload,
                 data: [...state.data],
             };
 
@@ -56,9 +58,9 @@ function reducer(state, action) {
 function MainPage() {
     const [state, dispatch] = useReducer(reducer, {
         data: [],
-        selectedSortOptions: {},
-        selectedGroupOptions: {},
-        selectedFilterOptions: {},
+        orderBy: orderOptions[0],
+        groupBy: groupOptions[0],
+        filters: [],
         isCombineTravelers: true,
     });
 
