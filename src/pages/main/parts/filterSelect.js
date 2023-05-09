@@ -7,6 +7,8 @@ import {
     versionOptions,
     weaponOptions,
 } from "../constants";
+import Select, { components } from "react-select";
+import { usePageContext } from "../mainPage";
 
 const filterOptions = [
     {
@@ -40,8 +42,27 @@ const filterOptions = [
     },
 ];
 
+const CustomMultiValue = (props) => <components.MultiValue {...props}>{props.data.label}</components.MultiValue>;
+
+const CustomOption = ({ children, ...props }) => {
+    return <components.Option {...props}>{children}</components.Option>;
+};
+
 function FilterSelect() {
-    return <div>FilterSelect</div>;
+    const { state, dispatch, actions } = usePageContext();
+
+    return (
+        <Select
+            className="setting-input"
+            options={filterOptions}
+            isMulti
+            defaultValue={state.filters}
+            onChange={(data) => dispatch({ type: actions.updateFilters, payload: data })}
+            hideSelectedOptions={false}
+            closeMenuOnSelect={false}
+            components={{ Option: CustomOption, MultiValue: CustomMultiValue }}
+        />
+    );
 }
 
 export default FilterSelect;

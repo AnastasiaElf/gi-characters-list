@@ -45,7 +45,7 @@ function reducer(state, action) {
         case actions.updateTravelersCombine:
             return {
                 ...state,
-                isCombineTravelers: action.payload,
+                isCombineTravelers: !state.isCombineTravelers,
                 data: [...state.data],
             };
 

@@ -7,6 +7,8 @@ import {
     versionOptions,
     weaponOptions,
 } from "../constants";
+import Select from "react-select";
+import { usePageContext } from "../mainPage";
 
 export const groupData = {
     element: elementOptions,
@@ -30,7 +32,16 @@ export const groupOptions = [
 ];
 
 function GroupSelect() {
-    return <div>GroupSelect</div>;
+    const { state, dispatch, actions } = usePageContext();
+
+    return (
+        <Select
+            className="setting-input"
+            options={groupOptions}
+            defaultValue={state.groupBy}
+            onChange={(data) => dispatch({ type: actions.updateGrouping, payload: data })}
+        />
+    );
 }
 
 export default GroupSelect;

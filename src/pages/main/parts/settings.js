@@ -7,15 +7,37 @@ function Settings() {
     const { state, dispatch, actions } = usePageContext();
 
     return (
-        <>
-            <div>
-                Settings:
-                {/* {context} */}
+        <div className="settings">
+            <div className="setting-item">
+                <div className="setting-label">Order by:</div>
+                <OrderSelect />
             </div>
-            <OrderSelect />
-            <GroupSelect />
-            <FilterSelect />
-        </>
+
+            <div className="setting-item">
+                <div className="setting-label">Group by:</div>
+                <GroupSelect />
+            </div>
+
+            <div className="setting-item">
+                <div className="setting-label">Show only:</div>
+                <FilterSelect />
+            </div>
+
+            <div className="setting-item">
+                <div>
+                    <label htmlFor="traveler">
+                        <input
+                            type="checkbox"
+                            id="traveler"
+                            name="traveler"
+                            checked={state.isCombineTravelers}
+                            onChange={() => dispatch({ type: actions.updateTravelersCombine })}
+                        />
+                        Hide all traveler variants
+                    </label>
+                </div>
+            </div>
+        </div>
     );
 }
 

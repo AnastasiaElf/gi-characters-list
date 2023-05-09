@@ -1,4 +1,6 @@
 import { bodyOptions, elementOptions, genderOptions, rarityOptions, regionOptions, weaponOptions } from "../constants";
+import Select from "react-select";
+import { usePageContext } from "../mainPage";
 
 export const orderOptions = [
     { value: "name", label: "Name" },
@@ -21,7 +23,16 @@ export const orderOptionsDataOrder = {
 };
 
 function OrderSelect() {
-    return <div>OrderSelect</div>;
+    const { state, dispatch, actions } = usePageContext();
+
+    return (
+        <Select
+            className="setting-input"
+            options={orderOptions}
+            defaultValue={state.orderBy}
+            onChange={(data) => dispatch({ type: actions.updateOrdering, payload: data })}
+        />
+    );
 }
 
 export default OrderSelect;
