@@ -1,8 +1,23 @@
 {
-    "aether_anemo": { "element": "Anemo", "releasedate": "2020-09-28", "releaseversion": "1.0" },
-    "aether_dendro": { "element": "Dendro", "releasedate": "2022-08-24", "releaseversion": "3.0" },
-    "aether_geo": { "element": "Geo", "releasedate": "2020-09-28", "releaseversion": "1.0" },
-    "aether_electro": { "element": "Electro", "releasedate": "2021-07-21", "releaseversion": "2.0" },
+    "aether_anemo": {
+        "element": "Anemo",
+        "releasedate": "2020-09-28",
+        "releaseversion": "1.0",
+        "characterId": "aether"
+    },
+    "aether_dendro": {
+        "element": "Dendro",
+        "releasedate": "2022-08-24",
+        "releaseversion": "3.0",
+        "characterId": "aether"
+    },
+    "aether_geo": { "element": "Geo", "releasedate": "2020-09-28", "releaseversion": "1.0", "characterId": "aether" },
+    "aether_electro": {
+        "element": "Electro",
+        "releasedate": "2021-07-21",
+        "releaseversion": "2.0",
+        "characterId": "aether"
+    },
     "albedo": { "releasedate": "2020-12-23", "releaseversion": "1.2" },
     "alhaitham": { "releasedate": "2023-01-18", "releaseversion": "3.4" },
     "aloy": { "releasedate": "2021-09-01", "releaseversion": "2.1" },
@@ -38,10 +53,25 @@
     "kukishinobu": { "releasedate": "2022-06-21", "releaseversion": "2.7" },
     "layla": { "releasedate": "2022-11-18", "releaseversion": "3.2" },
     "lisa": { "releasedate": "2020-09-28", "releaseversion": "1.0" },
-    "lumine_anemo": { "element": "Anemo", "releasedate": "2020-09-28", "releaseversion": "1.0" },
-    "lumine_dendro": { "element": "Dendro", "releasedate": "2022-08-24", "releaseversion": "3.0" },
-    "lumine_geo": { "element": "Geo", "releasedate": "2020-09-28", "releaseversion": "1.0" },
-    "lumine_electro": { "element": "Electro", "releasedate": "2021-07-21", "releaseversion": "2.0" },
+    "lumine_anemo": {
+        "element": "Anemo",
+        "releasedate": "2020-09-28",
+        "releaseversion": "1.0",
+        "characterId": "lumine"
+    },
+    "lumine_dendro": {
+        "element": "Dendro",
+        "releasedate": "2022-08-24",
+        "releaseversion": "3.0",
+        "characterId": "lumine"
+    },
+    "lumine_geo": { "element": "Geo", "releasedate": "2020-09-28", "releaseversion": "1.0", "characterId": "lumine" },
+    "lumine_electro": {
+        "element": "Electro",
+        "releasedate": "2021-07-21",
+        "releaseversion": "2.0",
+        "characterId": "lumine"
+    },
     "mika": { "releasedate": "2023-03-22", "releaseversion": "3.5" },
     "mona": { "releasedate": "2020-09-28", "releaseversion": "1.0" },
     "nahida": { "releasedate": "2022-11-02", "releaseversion": "3.2" },
