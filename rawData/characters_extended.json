@@ -3,20 +3,29 @@
         "element": "Anemo",
         "releasedate": "2020-09-28",
         "releaseversion": "1.0",
-        "characterId": "aether"
+        "characterId": "aether",
+        "isTraveler": true
     },
     "aether_dendro": {
         "element": "Dendro",
         "releasedate": "2022-08-24",
         "releaseversion": "3.0",
-        "characterId": "aether"
+        "characterId": "aether",
+        "isTraveler": true
     },
-    "aether_geo": { "element": "Geo", "releasedate": "2020-09-28", "releaseversion": "1.0", "characterId": "aether" },
+    "aether_geo": {
+        "element": "Geo",
+        "releasedate": "2020-09-28",
+        "releaseversion": "1.0",
+        "characterId": "aether",
+        "isTraveler": true
+    },
     "aether_electro": {
         "element": "Electro",
         "releasedate": "2021-07-21",
         "releaseversion": "2.0",
-        "characterId": "aether"
+        "characterId": "aether",
+        "isTraveler": true
     },
     "albedo": { "releasedate": "2020-12-23", "releaseversion": "1.2" },
     "alhaitham": { "releasedate": "2023-01-18", "releaseversion": "3.4" },
@@ -57,20 +66,29 @@
         "element": "Anemo",
         "releasedate": "2020-09-28",
         "releaseversion": "1.0",
-        "characterId": "lumine"
+        "characterId": "lumine",
+        "isTraveler": true
     },
     "lumine_dendro": {
         "element": "Dendro",
         "releasedate": "2022-08-24",
         "releaseversion": "3.0",
-        "characterId": "lumine"
+        "characterId": "lumine",
+        "isTraveler": true
     },
-    "lumine_geo": { "element": "Geo", "releasedate": "2020-09-28", "releaseversion": "1.0", "characterId": "lumine" },
+    "lumine_geo": {
+        "element": "Geo",
+        "releasedate": "2020-09-28",
+        "releaseversion": "1.0",
+        "characterId": "lumine",
+        "isTraveler": true
+    },
     "lumine_electro": {
         "element": "Electro",
         "releasedate": "2021-07-21",
         "releaseversion": "2.0",
-        "characterId": "lumine"
+        "characterId": "lumine",
+        "isTraveler": true
     },
     "mika": { "releasedate": "2023-03-22", "releaseversion": "3.5" },
     "mona": { "releasedate": "2020-09-28", "releaseversion": "1.0" },

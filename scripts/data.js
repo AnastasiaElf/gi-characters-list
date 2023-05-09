@@ -11,19 +11,29 @@ async function main() {
         });
 
         let processedData = {};
-        Object.keys(extendedData).forEach((key) => {
-            processedData[key] = {
-                ...(({ name, rarity, element, weapontype, gender, body, region }) => ({
+        Object.keys(extendedData).forEach((elemId) => {
+            let elemExtendedData = extendedData[elemId];
+            let elemRawId = elemExtendedData.characterId || elemId;
+            let elemRawData = rawData[elemRawId];
+
+            processedData[elemId] = {
+                ...(({ name, rarity, element, weapontype, gender, region }) => ({
                     name,
                     rarity,
                     element,
                     weapontype,
                     gender,
-                    body,
                     region,
-                }))(rawData[extendedData[key].characterId || key]),
-                ...extendedData[key],
-                img: extendedData[key].characterId || key,
+                }))(elemRawData),
+                ...elemExtendedData,
+                id: elemId,
+                img: elemRawId,
+                body:
+                    elemRawData.body === "BOY" || elemRawData.body === "GIRL"
+                        ? "medium"
+                        : elemRawData.body === "LADY" || elemRawData.body === "MALE"
+                        ? "large"
+                        : "small",
             };
         });
 

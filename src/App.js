@@ -3,6 +3,7 @@ import "./App.css";
 import data from "./data/data";
 import Card from "./library/card/card";
 import Select, { components } from "react-select";
+import MainPage from "./pages/main/mainPage";
 
 const sortOptions = [
     { value: "name", label: "Name" },
@@ -157,12 +158,6 @@ function App() {
                 ...value,
                 releasedate: new Date(value.releasedate),
                 region: value.region || "noregion",
-                body:
-                    value.body === "BOY" || value.body === "GIRL"
-                        ? "medium"
-                        : value.body === "LADY" || value.body === "MALE"
-                        ? "large"
-                        : "small",
             });
         });
 
@@ -177,7 +172,7 @@ function App() {
     const characters = useMemo(() => {
         let data = [...charactersData];
         if (isCombineTravelers) {
-            data = data.filter((elem) => (elem.name === "Aether" ? elem.element === "Anemo" : elem.name !== "Lumine"));
+            data = data.filter((elem) => !elem.isTraveler || (elem.name === "Aether" && elem.element === "Anemo"));
         }
         let sortOption = selectedSortOptions.value;
         let groupOption = selectedGroupOptions.value;
@@ -263,77 +258,80 @@ function App() {
     };
 
     return (
-        <div className="main">
-            <div className="settings">
-                <div className="setting-item">
-                    <div className="setting-label">Order by:</div>
-                    <Select
-                        className="setting-input"
-                        options={sortOptions}
-                        defaultValue={selectedSortOptions}
-                        onChange={setSelectedSortOptions}
-                    />
-                </div>
-                <div className="setting-item">
-                    <div className="setting-label">Group by:</div>
-                    <Select
-                        className="setting-input"
-                        options={groupOptions}
-                        defaultValue={selectedGroupOptions}
-                        onChange={setSelectedGroupOptions}
-                    />
-                </div>
-                <div className="setting-item">
-                    <div className="setting-label">Show only:</div>
-                    <Select
-                        className="setting-input"
-                        options={filterOptions}
-                        isMulti
-                        defaultValue={selectedFilterOptions}
-                        onChange={setSelectedFilterOptions}
-                        hideSelectedOptions={false}
-                        closeMenuOnSelect={false}
-                        components={{ Option: CustomOption, MultiValue: CustomMultiValue }}
-                    />
-                </div>
-                <div className="setting-item">
-                    <div>
-                        <label htmlFor="traveler">
-                            <input
-                                type="checkbox"
-                                id="traveler"
-                                name="traveler"
-                                checked={isCombineTravelers}
-                                onChange={() => setIsCombineTravelers(!isCombineTravelers)}
-                            />
-                            Hide all traveler variants
-                        </label>
+        <>
+            <MainPage />
+            <div className="main">
+                <div className="settings">
+                    <div className="setting-item">
+                        <div className="setting-label">Order by:</div>
+                        <Select
+                            className="setting-input"
+                            options={sortOptions}
+                            defaultValue={selectedSortOptions}
+                            onChange={setSelectedSortOptions}
+                        />
+                    </div>
+                    <div className="setting-item">
+                        <div className="setting-label">Group by:</div>
+                        <Select
+                            className="setting-input"
+                            options={groupOptions}
+                            defaultValue={selectedGroupOptions}
+                            onChange={setSelectedGroupOptions}
+                        />
+                    </div>
+                    <div className="setting-item">
+                        <div className="setting-label">Show only:</div>
+                        <Select
+                            className="setting-input"
+                            options={filterOptions}
+                            isMulti
+                            defaultValue={selectedFilterOptions}
+                            onChange={setSelectedFilterOptions}
+                            hideSelectedOptions={false}
+                            closeMenuOnSelect={false}
+                            components={{ Option: CustomOption, MultiValue: CustomMultiValue }}
+                        />
+                    </div>
+                    <div className="setting-item">
+                        <div>
+                            <label htmlFor="traveler">
+                                <input
+                                    type="checkbox"
+                                    id="traveler"
+                                    name="traveler"
+                                    checked={isCombineTravelers}
+                                    onChange={() => setIsCombineTravelers(!isCombineTravelers)}
+                                />
+                                Hide all traveler variants
+                            </label>
+                        </div>
                     </div>
                 </div>
+                {selectedGroupOptions.value ? (
+                    characters.map((groupItems, id) => {
+                        return (
+                            <React.Fragment key={id}>
+                                <div className="cards-divider" key={groupItems.groupInfo.value}>
+                                    {groupItems.groupInfo.label}
+                                </div>
+                                <div className="cards" key={groupItems.groupInfo.value + "-cards"}>
+                                    {groupItems.data.map((elem) => (
+                                        <Card data={elem} key={elem.id} />
+                                    ))}
+                                </div>
+                            </React.Fragment>
+                        );
+                    })
+                ) : (
+                    <div className="cards">
+                        {characters.map((elem) => (
+                            <Card data={elem} key={elem.id} />
+                        ))}
+                    </div>
+                )}
             </div>
-            {selectedGroupOptions.value ? (
-                characters.map((groupItems, id) => {
-                    return (
-                        <React.Fragment key={id}>
-                            <div className="cards-divider" key={groupItems.groupInfo.value}>
-                                {groupItems.groupInfo.label}
-                            </div>
-                            <div className="cards" key={groupItems.groupInfo.value + "-cards"}>
-                                {groupItems.data.map((elem) => (
-                                    <Card data={elem} key={elem.id} />
-                                ))}
-                            </div>
-                        </React.Fragment>
-                    );
-                })
-            ) : (
-                <div className="cards">
-                    {characters.map((elem) => (
-                        <Card data={elem} key={elem.id} />
-                    ))}
-                </div>
-            )}
-        </div>
+        </>
     );
 }
 
