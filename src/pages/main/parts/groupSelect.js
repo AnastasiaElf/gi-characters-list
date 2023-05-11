@@ -10,7 +10,7 @@ import {
 import Select from "react-select";
 import { usePageContext } from "../mainPage";
 
-export const groupData = {
+export const groupOptionsData = {
     element: elementOptions,
     weapontype: weaponOptions,
     rarity: rarityOptions,
