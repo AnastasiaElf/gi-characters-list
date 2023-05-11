@@ -49,15 +49,15 @@ const CustomOption = ({ children, ...props }) => {
 };
 
 function FilterSelect() {
-    const { state, dispatch, actions } = usePageContext();
+    const { state, dispatch, actionType } = usePageContext();
 
     return (
         <Select
             className="setting-input"
             options={filterOptions}
             isMulti
-            defaultValue={state.filters}
-            onChange={(data) => dispatch({ type: actions.updateFilters, payload: data })}
+            defaultValue={state.settings.filters}
+            onChange={(data) => dispatch({ type: actionType.updateFilters, payload: data })}
             hideSelectedOptions={false}
             closeMenuOnSelect={false}
             components={{ Option: CustomOption, MultiValue: CustomMultiValue }}

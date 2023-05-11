@@ -23,14 +23,14 @@ export const orderOptionsDataOrder = {
 };
 
 function OrderSelect() {
-    const { state, dispatch, actions } = usePageContext();
+    const { state, dispatch, actionType } = usePageContext();
 
     return (
         <Select
             className="setting-input"
             options={orderOptions}
-            defaultValue={state.orderBy}
-            onChange={(data) => dispatch({ type: actions.updateOrdering, payload: data })}
+            defaultValue={state.settings.orderBy}
+            onChange={(data) => dispatch({ type: actionType.updateOrdering, payload: data })}
         />
     );
 }

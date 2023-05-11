@@ -4,7 +4,7 @@ import OrderSelect from "./orderSelect";
 import GroupSelect from "./groupSelect";
 
 function Settings() {
-    const { state, dispatch, actions } = usePageContext();
+    const { state, dispatch, actionType } = usePageContext();
 
     return (
         <div className="settings">
@@ -30,8 +30,8 @@ function Settings() {
                             type="checkbox"
                             id="traveler"
                             name="traveler"
-                            checked={state.isCombineTravelers}
-                            onChange={() => dispatch({ type: actions.updateTravelersCombine })}
+                            checked={state.settings.isCombineTravelers}
+                            onChange={() => dispatch({ type: actionType.updateTravelersCombine })}
                         />
                         Hide all traveler variants
                     </label>

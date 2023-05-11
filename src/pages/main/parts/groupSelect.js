@@ -32,14 +32,14 @@ export const groupOptions = [
 ];
 
 function GroupSelect() {
-    const { state, dispatch, actions } = usePageContext();
+    const { state, dispatch, actionType } = usePageContext();
 
     return (
         <Select
             className="setting-input"
             options={groupOptions}
-            defaultValue={state.groupBy}
-            onChange={(data) => dispatch({ type: actions.updateGrouping, payload: data })}
+            defaultValue={state.settings.groupBy}
+            onChange={(data) => dispatch({ type: actionType.updateGrouping, payload: data })}
         />
     );
 }
