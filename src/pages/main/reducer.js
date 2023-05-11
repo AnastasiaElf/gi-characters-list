@@ -1,5 +1,5 @@
 import initialData from "../../data/data";
-import { orderOptions } from "./parts/orderSelect";
+import { orderOptions, orderOptionsData } from "./parts/orderSelect";
 import { groupOptions, groupOptionsData } from "./parts/groupSelect";
 
 const defaultGroupOption = groupOptions.find((elem) => elem.value === null);
@@ -56,9 +56,9 @@ export function mainReducer(state, action) {
 
 function getData(data, settings) {
     let filteredData = filterData(initialData, settings);
-    let newData = groupData(filteredData, settings);
-    
-    return newData;
+    let processedData = groupAndSortData(filteredData, settings);
+
+    return processedData;
 }
 
 function filterData(data, settings) {
@@ -93,23 +93,51 @@ function filterData(data, settings) {
     return result;
 }
 
-function groupData(data, settings) {
+function groupAndSortData(data, settings) {
     let result = [];
     let groupId = settings.groupBy.value;
     let groups = groupOptionsData[groupId];
 
     if (groups) {
         result = groups.reduce((result, group) => {
+            const filteredData = data.filter((elem) => elem[groupId].toLowerCase() === group.value);
+            const sortedData = sortData(filteredData, settings);
             result.push({
                 group,
-                // TODO: sort data
-                data: data.filter((elem) => elem[groupId].toLowerCase() === group.value),
+                data: sortedData,
             });
             return result;
         }, []);
     } else {
-        result.push({ data });
+        result.push({ data: sortData(data, settings) });
     }
 
     return result;
+}
+
+function sortData(data, settings) {
+    let newData = [...data];
+    let orderId = settings.orderBy.value;
+    let orderData = orderOptionsData[orderId];
+
+    if (orderData) {
+        newData.sort(
+            (a, b) =>
+                orderData.indexOf(a[orderId].toLowerCase()) - orderData.indexOf(b[orderId].toLowerCase()) ||
+                a.name.localeCompare(b.name)
+        );
+    } else {
+        switch (orderId) {
+            case "name":
+                newData.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "releasedate":
+                newData.sort((a, b) => a[orderId] - b[orderId] || a.name.localeCompare(b.name));
+                break;
+            default:
+                break;
+        }
+    }
+
+    return newData;
 }

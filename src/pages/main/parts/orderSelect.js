@@ -13,7 +13,7 @@ export const orderOptions = [
     { value: "body", label: "Body type" },
 ];
 
-export const orderOptionsDataOrder = {
+export const orderOptionsData = {
     rarity: rarityOptions.map((elem) => elem.value),
     element: elementOptions.map((elem) => elem.value),
     weapontype: weaponOptions.map((elem) => elem.value),
