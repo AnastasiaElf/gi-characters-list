@@ -49,13 +49,13 @@ export function mainReducer(state, action) {
     }
 
     return {
-        data: getData(state.data, settings),
+        data: getData(initialData, settings),
         settings,
     };
 }
 
 function getData(data, settings) {
-    let filteredData = filterData(initialData, settings);
+    let filteredData = filterData(data, settings);
     let processedData = groupAndSortData(filteredData, settings);
 
     return processedData;
