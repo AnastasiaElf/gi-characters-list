@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cards-divider {
+    background: #cacaca;
+    font-size: 18px;
+    padding: 8px 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #292929;
+}
+
+.settings {
+    margin-bottom: 10px;
+}
+
+.setting-item {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+}
+
+.setting-label {
+    width: 100px;
+    max-width: 100px;
+    margin-bottom: 8px;
+}
+
+.setting-input {
+    width: 100%;
+}
+
+@media (max-width: 756px) {
+    .setting-item {
+        flex-wrap: wrap;
+    }
+}
