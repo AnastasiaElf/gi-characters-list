@@ -1,6 +1,6 @@
 import initialData from "../../data/data";
-import { orderOptions, orderOptionsData } from "./parts/orderSelect";
-import { groupOptions, groupOptionsData } from "./parts/groupSelect";
+import { orderOptions, orderOptionsData } from "./components/orderSelect";
+import { groupOptions, groupOptionsData } from "./components/groupSelect";
 
 const defaultGroupOption = groupOptions.find((elem) => elem.value === null);
 const defaultOrderOption = orderOptions.find((elem) => elem.value === "name");

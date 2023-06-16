@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import "./mainPage.css";
-import List from "./parts/list";
-import Settings from "./parts/settings";
+import List from "./components/list";
+import Settings from "./components/settings";
 import { initialState, mainReducer, actionType } from "./reducer";
 
 export const PageContext = createContext({});
